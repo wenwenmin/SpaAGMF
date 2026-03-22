@@ -1,0 +1,5 @@
+all_names: ['CRC_A1', 'CRC_A2', 'CRC_B1', 'CRC_B2', 'CRC_C1', 'CRC_C2', 'CRC_D1', 'CRC_D2', 'CRC_E1', 'CRC_E2', 'CRC_G1', 'CRC_G2',]
+data_dir: '../../../../data/CRC'
+k_neighbors: 18
+num_workers: 4
+ema_decay: 0.999

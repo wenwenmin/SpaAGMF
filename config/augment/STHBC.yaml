@@ -1,0 +1,14 @@
+cls_noise_std: 0.01
+cls_dropout_p: 0.7
+
+gene_noise_std: 0.05
+gene_dropout_p: 0.7
+
+patch_keep: 32
+patch_noise_std: 0.01
+patch_dropout_p: 0.7
+
+
+fixed_num: 9
+random_num: 3
+

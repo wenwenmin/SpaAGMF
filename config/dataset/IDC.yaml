@@ -1,0 +1,7 @@
+ref_names: ['A', 'B', 'C','D', 'E', 'F', 'G', 'H']
+tgt_names: ['IDC']
+#data_dir: 'D:\myf\project\SpaAGMF_public\data\STHBC2IDC'
+data_dir: '../../../../data/STHBC2IDC'
+k_neighbors: 18
+num_workers: 3
+ema_decay: 0

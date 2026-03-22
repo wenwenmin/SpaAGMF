@@ -1,0 +1,6 @@
+ref_names: ['A', 'B', 'C','D', 'E', 'F', 'G', 'H']
+tgt_names: ['ViHBC']
+data_dir: '../../../../data/STHBC2ViHBC'
+k_neighbors: 18
+num_workers: 3
+ema_decay: 0

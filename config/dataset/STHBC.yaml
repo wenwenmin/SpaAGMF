@@ -1,0 +1,5 @@
+all_names: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+data_dir: '../../../../data/STHBC'
+k_neighbors: 24
+num_workers: 3
+ema_decay: 0.999

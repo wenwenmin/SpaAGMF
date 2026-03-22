@@ -1,0 +1,13 @@
+defaults:
+  - _self_
+  - dataset: IDC
+  - ctt: IDC
+  - cls: IDC
+  - augment: IDC
+
+dataset_name: "IDC"
+seeds: [3407, 2026, 0, 4, 23]
+
+hydra:
+  run:
+    dir: outputs/${dataset_name}/${now:%Y-%m-%d}/${now:%H-%M-%S}

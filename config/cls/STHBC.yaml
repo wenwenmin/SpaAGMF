@@ -1,0 +1,15 @@
+model:
+  num_layers: 2
+  num_heads: 2
+
+training:
+  epoch: 100
+  lr: 1e-3
+  weight_decay: 0
+  dropout: 0.7
+  cls_dropout: 0.7
+  batch_size: 256
+
+
+
+
