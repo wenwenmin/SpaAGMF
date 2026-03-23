@@ -20,6 +20,6 @@ We evaluated SpaAGMF on five spatial transcriptomics datasets encompassing vario
 | IDC | Single-slice | Breast Cancer | 3798 | 65.01 | Visium | [Link]() |
 
 # Environment
-conda create -n SpaAGMF python==3.10.20
-conda activate SpaAGMF
+conda create -n SpaAGMF python==3.10.20  
+conda activate SpaAGMF  
 pip install -r requirements.txt
