@@ -1,3 +1,10 @@
+"""
+Main script for executing cross-platform&batch validation.
+
+This script trains models on a designated set of reference datasets and
+evaluates on specific target datasets to assess domain generalization.
+"""
+
 import json
 import os
 import hydra
@@ -13,30 +20,37 @@ from utils import EMACallback
 
 @hydra.main(config_path="./config", config_name="config", version_base="1.1")
 def main(cfg: DictConfig):
+    """
+        Execute the cross-platform validation pipeline.
+
+        Args:
+            cfg (DictConfig): The configuration object loaded by Hydra.
+    """
     all_seed_results = {}
     for seed in cfg.seeds:
         print(f"\n==================== Running seed = {seed} ====================")
 
         all_results = {}
+
+        # Set seed for reproducibility
         pl.seed_everything(seed, workers=True)
 
-        #  cross-platform&batch validation
+        #  Perform cross-platform&batch validation
         for test_name in cfg.dataset.tgt_names:
-            # 1. Data partition
+            # 1. Data partition: Use reference datasets for training and target dataset for testing
             print(f"********************{test_name} is being tested  ********************")
             train_names = cfg.dataset.ref_names
 
-            # 2. Create the training manager
+            # 2. Initialize the training manager
             ema_cb = EMACallback(cfg.dataset.ema_decay)
             train_manager = TrainingManager(train_names, [test_name], cfg, ema_cb, seed)
-
-            # 3. Training
+            # Execute the training phase
             train_manager.train()
 
-            # 4. Get the trained model
+            # 3. Get the trained model for testing
             model = train_manager.cls_model
 
-            # 5. Testing
+            # 4. Testing phase initialization
             test_data = load_data([test_name], cfg)
             test_dataset = MineDataset(test_data, mode='cls', cfg=cfg, is_train=False)
             test_dataloader = DataLoader(
@@ -45,16 +59,24 @@ def main(cfg: DictConfig):
                 shuffle=False,
                 num_workers=0
             )
+
+            # Set up EMA for testing
             ema_test_cb = EMACallback()
             ema_test_cb.ema_state_dict = ema_cb.ema_state_dict
+
+            # set log directory
             log_dir = f'{os.getcwd()}/{seed}/{test_name}'
             os.makedirs(log_dir, exist_ok=True)
+
+            # Execute testing
             trainer = pl.Trainer(
                 default_root_dir=log_dir,
                 callbacks=[ema_test_cb],
                 precision=16,
             )
             trainer.test(model, dataloaders=test_dataloader)
+
+            # 5. Save current seed testing result
             all_results[test_name] = model.result
 
             # 6. Release resource
@@ -72,13 +94,11 @@ def main(cfg: DictConfig):
             import gc
             gc.collect()
 
-
+        # Save all seed testing results
         all_seed_results[seed] = all_results
 
-        # 7. Saving the LOOCV result
         save_dir = Path(cfg.output_dir) if "output_dir" in cfg else Path("./outputs")
         save_dir.mkdir(parents=True, exist_ok=True)
-
         json_path = save_dir / "cross_validation_results.json"
         with open(json_path, "w", encoding="utf-8") as f:
             json.dump(all_seed_results, f, indent=4)
