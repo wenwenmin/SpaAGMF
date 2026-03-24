@@ -7,7 +7,7 @@ To address these challenges, we propose SpaAGMF, a novel adaptive gated multi-sc
 We evaluated SpaAGMF on five spatial transcriptomics datasets encompassing various cancer types and sequencing platforms. Extensive experiments demonstrate that SpaAGMF consistently outperforms state-of-the-art methods in cross-sample, cross-platform and cross-batch classification tasks.
 
 # Model Structure
-![Schematic of the proposed framework](./resource/Fig1_version_3.png)
+![Schematic of the proposed framework](./image/Fig1_version_3.png)
 **Figure 1.** (A) Multimodal input processing from whole slide images and spatial transcriptomics. (B) Stage 1: Cross-modal alignment using bidirectional InfoNCE loss. (C) Stage 2: The MS-GRE network, featuring gene-guided gated cross-attention for micro-scale features and neighborhood-aware gated self-attention for macro-scale context. (D) Detailed architecture of the GMHA module.
 
 # Data
