@@ -19,6 +19,10 @@ We evaluated SpaAGMF on five spatial transcriptomics datasets encompassing vario
 | ViHBC | Single-slice | Breast Cancer | 3798 | 65.56% | Visium | [Link](https://zenodo.org/records/10437391) |
 | IDC | Single-slice | Breast Cancer | 4727 | 55.19% | Visium | [Link](https://www.10xgenomics.com/datasets/invasive-ductal-carcinoma-stained-with-fluorescent-cd-3-antibody-1-standard-1-2-0) |
 
+## Tutorial
+
+- [View the tutorial](./tutorial.ipynb)
+
 # Environment
 conda create -n SpaAGMF python==3.10.20  
 conda activate SpaAGMF  
