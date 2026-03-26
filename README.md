@@ -13,11 +13,11 @@ We evaluated SpaAGMF on five spatial transcriptomics datasets encompassing vario
 # Data
 | Dataset | Data Type | Tumor Type | Spots | Tumor Ratio | Platform | Link| 
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| CRC | Multi-slice | Colorectal Cancer | -- | -- | Visium | [Link]() |
-| STHBC | Multi-slice | Breast Cancer | -- | -- | ST | [Link]() |
-| XeHBC | Single-slice | Breast Cancer | -- | -- | Xenium | [Link]() |
-| ViHBC | Single-slice | Breast Cancer | -- | -- | Visium | [Link]() |
-| IDC | Single-slice | Breast Cancer | -- | -- | Visium | [Link]() |
+| CRC | Multi-slice | Colorectal Cancer | 17392 | 44.70% | Visium | [Link](https://zenodo.org/records/7760264.) |
+| STHBC | Multi-slice | Breast Cancer | 3481 | 54.47% | ST | [Link](https://github.com/almaan/her2st) |
+| XeHBC | Single-slice | Breast Cancer | 4050 | 36.84% | Xenium | [Link](https://www.10xgenomics.com/products/xenium-in-situ/preview-dataset-human-breast) |
+| ViHBC | Single-slice | Breast Cancer | 3798 | 65.56% | Visium | [Link](https://zenodo.org/records/10437391) |
+| IDC | Single-slice | Breast Cancer | 4727 | 55.19% | Visium | [Link](https://www.10xgenomics.com/datasets/invasive-ductal-carcinoma-stained-with-fluorescent-cd-3-antibody-1-standard-1-2-0) |
 
 # Environment
 conda create -n SpaAGMF python==3.10.20  
