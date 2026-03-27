@@ -13,7 +13,7 @@ We evaluated SpaAGMF on five spatial transcriptomics datasets encompassing vario
 # Data
 | Dataset | Data Type | Tumor Type | Spots | Tumor Ratio | Platform | Link| 
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| CRC | Multi-slice | Colorectal Cancer | 17392 | 44.70% | Visium | [Link](https://zenodo.org/records/7760264.) |
+| CRC | Multi-slice | Colorectal Cancer | 17392 | 44.70% | Visium | [Link](https://zenodo.org/records/7760264) |
 | STHBC | Multi-slice | Breast Cancer | 3481 | 54.47% | ST | [Link](https://github.com/almaan/her2st) |
 | XeHBC | Single-slice | Breast Cancer | 4050 | 36.84% | Xenium | [Link](https://www.10xgenomics.com/products/xenium-in-situ/preview-dataset-human-breast) |
 | ViHBC | Single-slice | Breast Cancer | 3798 | 65.56% | Visium | [Link](https://zenodo.org/records/10437391) |
